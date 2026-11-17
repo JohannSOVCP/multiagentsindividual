@@ -1,25 +1,24 @@
 # CG Assignment 1
 
-Proyecto de transformaciones 2D de Juan Carlos Luz Gallardo (A0102852).
+A 2D transformations project by Juan Carlos Luz Gallardo (A0102852).
 
-## Ejecutar
+## Run
 
-Desde esta carpeta (`CGAssignment1/Graphics`):
+From this directory (`CGAssignment1/Graphics`):
 
 ```bash
 npm install
 npm run dev
 ```
 
-Abre la URL que muestra Vite. La página y el programa están en `CG_1/`.
+Open the URL printed by Vite. The page and program are in `CG_1/`.
 
-## Validar
+## Build
 
 ```bash
 npm run build
 ```
 
-La cara y el pivote son mallas de triángulos con sus propios `VertexArrayObject`.
-La rotación de la cara se compone alrededor del pivote; el panel lil-gui permite
-ajustar la posición, rotación, escala, posición del pivote y el orden de las
-matrices.
+The face and pivot are triangle meshes, each with its own `VertexArrayObject`.
+The lil-gui panel controls translation, rotation, scale, pivot position, and
+matrix order.

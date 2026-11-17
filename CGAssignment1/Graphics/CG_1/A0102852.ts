@@ -18,13 +18,13 @@ interface Mesh {
 
 const canvasElement = document.querySelector<HTMLCanvasElement>('#canvas');
 if (!canvasElement) {
-    throw new Error('No se encontró el canvas de WebGL.');
+    throw new Error('WebGL canvas not found.');
 }
 const canvas: HTMLCanvasElement = canvasElement;
 
 const context = canvas.getContext('webgl2');
 if (!context) {
-    throw new Error('Este navegador no tiene soporte para WebGL 2.');
+    throw new Error('This browser does not support WebGL 2.');
 }
 const gl: WebGL2RenderingContext = context;
 const programInfo = twgl.createProgramInfo(gl, [vertexShaderSource, fragmentShaderSource]);
@@ -33,7 +33,7 @@ function createMesh(arrays: ShapeArrays): Mesh {
     const bufferInfo = twgl.createBufferInfoFromArrays(gl, arrays);
     const vao = twgl.createVAOFromBufferInfo(gl, programInfo, bufferInfo);
     if (!vao) {
-        throw new Error('No se pudo crear un VertexArrayObject.');
+        throw new Error('Could not create a VertexArrayObject.');
     }
     return { bufferInfo, vao };
 }
@@ -156,18 +156,18 @@ function render(): void {
     gl.bindVertexArray(null);
 }
 
-const gui = new GUI({ title: 'Transformaciones' });
-const faceFolder = gui.addFolder('Cara');
-const translationFolder = faceFolder.addFolder('Traslación');
+const gui = new GUI({ title: 'Transforms' });
+const faceFolder = gui.addFolder('Face');
+const translationFolder = faceFolder.addFolder('Translation');
 translationFolder.add(state.translation, 'x', -400, 400, 1).name('X').onChange(render);
 translationFolder.add(state.translation, 'y', -280, 280, 1).name('Y').onChange(render);
-faceFolder.add(state, 'rotation', -360, 360, 1).name('Rotación').onChange(render);
-const scaleFolder = faceFolder.addFolder('Escala');
+faceFolder.add(state, 'rotation', -360, 360, 1).name('Rotation').onChange(render);
+const scaleFolder = faceFolder.addFolder('Scale');
 scaleFolder.add(state.scale, 'x', 0.2, 2.5, 0.05).name('X').onChange(render);
 scaleFolder.add(state.scale, 'y', 0.2, 2.5, 0.05).name('Y').onChange(render);
-faceFolder.add(state, 'order', [...orders]).name('Orden de matrices').onChange(render);
+faceFolder.add(state, 'order', [...orders]).name('Matrix order').onChange(render);
 
-const pivotFolder = gui.addFolder('Pivote');
+const pivotFolder = gui.addFolder('Pivot');
 pivotFolder.add(state.pivot, 'x', -450, 450, 1).name('X').onChange(render);
 pivotFolder.add(state.pivot, 'y', -300, 300, 1).name('Y').onChange(render);
 
