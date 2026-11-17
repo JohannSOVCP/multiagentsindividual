@@ -1,0 +1,19 @@
+{
+  "name": "cg-assignment-1",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite CG_1",
+    "build": "tsc && vite build CG_1",
+    "preview": "vite preview CG_1"
+  },
+  "dependencies": {
+    "lil-gui": "^0.21.0",
+    "twgl-base.js": "^5.5.3"
+  },
+  "devDependencies": {
+    "typescript": "~6.0.2",
+    "vite": "^8.1.1"
+  }
+}
