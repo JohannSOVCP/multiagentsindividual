@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>A2 Cleaning Simulation</title>
+  <style>
+    body {
+      margin: 16px;
+      color: #222;
+      font-family: Arial, sans-serif;
+    }
+    h1 { font-size: 24px; }
+    .controls { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; }
+    button, select { padding: 5px 8px; }
+    #status { margin-left: 8px; }
+    #legend { margin: 14px 0; }
+    .key { margin-right: 12px; }
+    .swatch {
+      display: inline-block;
+      width: 12px;
+      height: 12px;
+      margin-right: 4px;
+      vertical-align: -1px;
+    }
+    main { max-width: 1000px; }
+    canvas {
+      display: block;
+      width: 100%;
+      height: min(70vh, 680px);
+      min-height: 360px;
+      border: 1px solid #888;
+    }
+    #summary { margin-top: 8px; }
+    #error { color: #b00020; }
+  </style>
+</head>
+<body>
+  <h1>Room cleaning simulation</h1>
+  <div class="controls">
+    <label for="agent-count">Agents:</label>
+    <select id="agent-count"></select>
+    <button id="play" type="button">Play</button>
+    <button id="pause" type="button">Pause</button>
+    <button id="reset" type="button">Reset</button>
+    <span id="status" role="status">Loading routes…</span>
+  </div>
+  <div id="legend" aria-label="Map legend">
+    <span class="key"><span class="swatch" style="background:#f4bd50"></span>Dirty</span>
+    <span class="key"><span class="swatch" style="background:#374151"></span>Locked</span>
+    <span class="key"><span class="swatch" style="background:#45a777"></span>Cleaned</span>
+    <span class="key"><span class="swatch" style="background:#55c7e8"></span>Route</span>
+  </div>
+  <main>
+    <canvas id="room" aria-label="Room grid and agent routes"></canvas>
+    <div id="summary"></div>
+  </main>
+  <script src="/static/app.js"></script>
+</body>
+</html>
